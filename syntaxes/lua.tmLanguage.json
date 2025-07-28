@@ -1,0 +1,19 @@
+{
+  "scopeName": "source.lua",
+  "name": "Lua",
+  "patterns": [
+    {
+      "name": "comment.line.double-dash.lua",
+      "match": "--.*$"
+    },
+    {
+      "name": "string.quoted.double.lua",
+      "begin": "\"",
+      "end": "\""
+    },
+    {
+      "name": "keyword.control.lua",
+      "match": "\\b(if|then|else|end|function|local|return)\\b"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "scopeName": "source.json",
+  "name": "JSON",
+  "patterns": [
+    {
+      "name": "string.quoted.double.json",
+      "begin": "\"",
+      "end": "\""
+    },
+    {
+      "name": "constant.numeric.json",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    {
+      "name": "punctuation.separator.key-value.json",
+      "match": ":"
+    },
+    {
+      "name": "punctuation.separator.array.json",
+      "match": ","
+    }
+  ]
+}

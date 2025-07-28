@@ -1,0 +1,96 @@
+{
+  "name": "pzmode",
+  "displayName": "PZ Mode",
+  "description": "A Visual Studio Code extension for Project Zomboid modding.",
+  "version": "0.0.1",
+  "publisher": "hexzhen3x7",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:pzmode.helloWorld"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pzmode.helloWorld",
+        "title": "PZ Mode: Hello World"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "pz-icons",
+        "label": "PZ Icons",
+        "path": "./pz-icons.json"
+      }
+    ],
+    "languages": [
+      {
+        "id": "pz",
+        "extensions": [".pz"],
+        "aliases": ["Project Zomboid Script"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "lua",
+        "extensions": [".lua"],
+        "aliases": ["Lua"]
+      },
+      {
+        "id": "ini",
+        "extensions": [".ini"],
+        "aliases": ["INI"]
+      },
+      {
+        "id": "json",
+        "extensions": [".json"],
+        "aliases": ["JSON"]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pz",
+        "scopeName": "source.pz",
+        "path": "./syntaxes/pz.tmLanguage.json"
+      },
+      {
+        "language": "lua",
+        "scopeName": "source.lua",
+        "path": "./syntaxes/lua.tmLanguage.json"
+      },
+      {
+        "language": "ini",
+        "scopeName": "source.ini",
+        "path": "./syntaxes/ini.tmLanguage.json"
+      },
+      {
+        "language": "json",
+        "scopeName": "source.json",
+        "path": "./syntaxes/json.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "pz",
+        "path": "./snippets/pz.json"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.102.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.0.0",
+    "eslint": "^9.0.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}

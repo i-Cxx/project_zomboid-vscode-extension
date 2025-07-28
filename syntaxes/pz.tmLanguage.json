@@ -7,6 +7,10 @@
       "match": "//.*$"
     },
     {
+      "name": "comment.line.double-dash.pz",
+      "match": "--.*$"
+    },
+    {
       "name": "comment.block.pz",
       "begin": "/\\*",
       "end": "\\*/"
@@ -14,11 +18,25 @@
     {
       "name": "string.quoted.double.pz",
       "begin": "\"",
-      "end": "\""
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.pz",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "constant.numeric.pz",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
     },
     {
       "name": "keyword.control.pz",
-      "match": "\\b(Start|End|Zombie|Player|Server)\\b"
+      "match": "\\b(Start|End|Zombie|Player|Server|Health|Skills|Location|Description|Inventory|Name|Map|Settings|Mode|Level|XP)\\b"
+    },
+    {
+      "name": "punctuation.section.braces.pz",
+      "match": "[{}]"
     }
   ],
   "repository": {},

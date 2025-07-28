@@ -1,0 +1,18 @@
+{
+  "scopeName": "source.ini",
+  "name": "INI",
+  "patterns": [
+    {
+      "name": "comment.line.semicolon.ini",
+      "match": ";.*$"
+    },
+    {
+      "name": "keyword.control.ini",
+      "match": "^\\s*\\[.*\\]"
+    },
+    {
+      "name": "variable.assignment.ini",
+      "match": "^\\s*[^=]+\\s*=\\s*.*$"
+    }
+  ]
+}

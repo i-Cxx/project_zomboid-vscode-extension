@@ -9,5 +9,29 @@
       "}"
     ],
     "description": "Start Section Template"
+  },
+  "Zombie Config": {
+    "prefix": "zombie",
+    "body": [
+      "Zombie = {",
+      "    Type = \"$1\"",
+      "    Strength = $2",
+      "    Speed = $3",
+      "}"
+    ],
+    "description": "Zombie Configuration"
+  },
+  "Player Config": {
+    "prefix": "player",
+    "body": [
+      "Player = {",
+      "    Name = \"$1\"",
+      "    Health = $2",
+      "    Skills = {",
+      "        $3",
+      "    }",
+      "}"
+    ],
+    "description": "Player Configuration"
   }
 }
