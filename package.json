@@ -48,6 +48,17 @@
         "configuration": "./language-configuration.json"
       },
       {
+        "id": "modinfo",
+        "aliases": [
+          "mod.info",
+          "ModInfo"
+        ],
+        "extensions": [
+          ".mod.info"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
         "id": "lua",
         "extensions": [
           ".lua"
@@ -80,6 +91,11 @@
         "language": "pz",
         "scopeName": "source.pz",
         "path": "./syntaxes/pz.tmLanguage.json"
+      },
+      {
+        "language": "modinfo",
+        "scopeName": "source.modinfo",
+        "path": "./syntaxes/mod-info.tmLanguage.json"
       },
       {
         "language": "lua",

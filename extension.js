@@ -10,16 +10,15 @@ function activate(context) {
 	context.subscriptions.push(disposable);
 
 	// Mod-Struktur Command (wie vorher)
-
 	const createModDisposable = vscode.commands.registerCommand('pzmode.createModStructure', async () => {
-		// ... dein Code aus vorherigem Beispiel ...
+		// Noch zu implementieren oder aus vorherigem Beispiel einfügen
 	});
 	context.subscriptions.push(createModDisposable);
 
-	// Neuer Command: Beispiel-Datei erstellen
+	// Beispiel-Datei erstellen (.pz, .ini, .json, .lua, .info)
 	const createSampleFileDisposable = vscode.commands.registerCommand('pzmode.createSampleFile', async () => {
 		const fileType = await vscode.window.showQuickPick(
-			['pz', 'ini', 'json', 'lua'], 
+			['pz', 'ini', 'json', 'lua', 'mod.info'],
 			{ placeHolder: 'Welchen Dateityp möchtest du erstellen?' }
 		);
 		if (!fileType) {
@@ -34,9 +33,10 @@ function activate(context) {
 		}
 		const rootUri = folders[0].uri;
 
+		const suggestedName = fileType === 'mod.info' ? 'mod.info' : `example.${fileType}`;
 		const fileName = await vscode.window.showInputBox({
 			prompt: `Dateiname für die neue ${fileType}-Datei`,
-			value: `example.${fileType}`
+			value: suggestedName
 		});
 		if (!fileName) {
 			vscode.window.showErrorMessage('Kein Dateiname angegeben.');
@@ -59,6 +59,9 @@ function activate(context) {
 			case 'lua':
 				content = `-- Beispiel Lua Script\nprint("Hallo Project Zomboid")\n`;
 				break;
+			case 'mod.info':
+				content = `name=MeineMod\nid=meinemod\nposter=poster.png\nicon=icon.png\nauthor=Dein Name\ndescription=Beschreibung hier\nrequire=Base\n`;
+				break;
 			default:
 				content = '';
 		}
@@ -68,14 +71,14 @@ function activate(context) {
 			await vscode.workspace.fs.writeFile(fileUri, encoder.encode(content));
 			const doc = await vscode.workspace.openTextDocument(fileUri);
 			await vscode.window.showTextDocument(doc);
-			vscode.window.showInformationMessage(`${fileType.toUpperCase()} Beispiel-Datei '${fileName}' erstellt.`);
+			vscode.window.showInformationMessage(`${fileType.toUpperCase()} Datei '${fileName}' erstellt.`);
 		} catch (err) {
 			vscode.window.showErrorMessage(`Fehler beim Erstellen der Datei: ${err.message}`);
 		}
 	});
 	context.subscriptions.push(createSampleFileDisposable);
 
-	// Keywords für Autocomplete und Hover (wie gehabt)
+	// Autocomplete + Hover für .pz
 	const keywords = ['Start', 'End', 'Zombie', 'Player', 'Server'];
 	const completionProvider = vscode.languages.registerCompletionItemProvider('pz', {
 		provideCompletionItems() {

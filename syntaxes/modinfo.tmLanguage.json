@@ -1,0 +1,28 @@
+{
+  "scopeName": "source.modinfo",
+  "name": "Project Zomboid mod.info",
+  "patterns": [
+    {
+      "name": "comment.line.semicolon.modinfo",
+      "match": ";.*$"
+    },
+    {
+      "name": "string.quoted.double.modinfo",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": []
+    },
+    {
+      "name": "keyword.modinfo",
+      "match": "\\b(name|id|description|poster|icon|author|require|incompatible|modversion|versionMin|versionMax|loadModAfter|loadModBefore)\\b"
+    },
+    {
+      "name": "meta.separator.modinfo",
+      "match": "\\s*=\\s*"
+    },
+    {
+      "name": "constant.numeric.modinfo",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    }
+  ]
+}
