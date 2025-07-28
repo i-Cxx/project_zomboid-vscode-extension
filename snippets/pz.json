@@ -3,8 +3,8 @@
     "prefix": "start",
     "body": [
       "Start = {",
-      "    Name = \"$1\"",
-      "    Location = \"$2\"",
+      "    Name = \"$1\",",
+      "    Location = \"$2\",",
       "    Description = \"$3\"",
       "}"
     ],
@@ -14,9 +14,10 @@
     "prefix": "zombie",
     "body": [
       "Zombie = {",
-      "    Type = \"$1\"",
-      "    Strength = $2",
-      "    Speed = $3",
+      "    Type = \"$1\",",
+      "    Strength = $2,",
+      "    Speed = $3,",
+      "    Health = $4",
       "}"
     ],
     "description": "Zombie Configuration"
@@ -25,13 +26,20 @@
     "prefix": "player",
     "body": [
       "Player = {",
-      "    Name = \"$1\"",
-      "    Health = $2",
+      "    Name = \"$1\",",
+      "    Health = $2,",
       "    Skills = {",
       "        $3",
       "    }",
       "}"
     ],
     "description": "Player Configuration"
+  },
+  "Comment": {
+    "prefix": "comment",
+    "body": [
+      "// $1"
+    ],
+    "description": "Single line comment"
   }
 }
