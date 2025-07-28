@@ -1,0 +1,13 @@
+{
+  "Start Section": {
+    "prefix": "start",
+    "body": [
+      "Start = {",
+      "    Name = \"$1\"",
+      "    Location = \"$2\"",
+      "    Description = \"$3\"",
+      "}"
+    ],
+    "description": "Start Section Template"
+  }
+}
