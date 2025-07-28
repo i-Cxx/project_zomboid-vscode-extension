@@ -1,0 +1,10 @@
+{
+  "iconDefinitions": {
+    "_pz": {
+      "iconPath": "./icons/pz-icon.svg"
+    }
+  },
+  "fileExtensions": {
+    "pz": "_pz"
+  }
+}

@@ -1,26 +1,48 @@
-// The module 'vscode' contains the VS Code extensibility API
 const vscode = require('vscode');
 
 /**
- * This method is called when your extension is activated
- * Your extension is activated the very first time the command is executed
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
 	console.log('Congratulations, your extension "pzmode" is now active!');
 
-	// Register the command defined in package.json
+	// Command registrieren (wie gehabt)
 	const disposable = vscode.commands.registerCommand('pzmode.helloWorld', () => {
-		// Show an information message every time the command is executed
 		vscode.window.showInformationMessage('Hello World from pzmode!');
 	});
-
 	context.subscriptions.push(disposable);
+
+	// Keywords für Autocomplete und Hover
+	const keywords = ['Start', 'End', 'Zombie', 'Player', 'Server'];
+
+	// Autocomplete Provider für .pz Dateien
+	const completionProvider = vscode.languages.registerCompletionItemProvider('pz', {
+		provideCompletionItems() {
+			return keywords.map(word => new vscode.CompletionItem(word, vscode.CompletionItemKind.Keyword));
+		}
+	});
+	context.subscriptions.push(completionProvider);
+
+	// Hover Provider für .pz Dateien
+	const hoverProvider = vscode.languages.registerHoverProvider('pz', {
+		provideHover(document, position) {
+			const range = document.getWordRangeAtPosition(position);
+			const word = document.getText(range);
+			const hoverMessages = {
+				Start: 'Startpunkt des Spiels',
+				End: 'Ende des Spiels',
+				Zombie: 'Gegner im Spiel',
+				Player: 'Spieler-Charakter',
+				Server: 'Server-Konfiguration'
+			};
+			if (hoverMessages[word]) {
+				return new vscode.Hover(hoverMessages[word]);
+			}
+		}
+	});
+	context.subscriptions.push(hoverProvider);
 }
 
-/**
- * This method is called when your extension is deactivated
- */
 function deactivate() {}
 
 module.exports = {

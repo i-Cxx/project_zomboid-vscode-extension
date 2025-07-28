@@ -21,6 +21,13 @@
         "title": "PZ Mode: Hello World"
       }
     ],
+    "iconThemes": [
+      {
+    "id": "pz-icons",
+    "label": "PZ Icons",
+    "path": "./pz-icons.json"
+      }
+    ],
     "languages": [
       {
         "id": "pz",
