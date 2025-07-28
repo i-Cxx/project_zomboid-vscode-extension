@@ -1,0 +1,27 @@
+{
+  "scopeName": "source.pz",
+  "name": "Project Zomboid",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash.pz",
+      "match": "//.*$"
+    },
+    {
+      "name": "comment.block.pz",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    {
+      "name": "string.quoted.double.pz",
+      "begin": "\"",
+      "end": "\""
+    },
+    {
+      "name": "keyword.control.pz",
+      "match": "\\b(Start|End|Zombie|Player|Server)\\b"
+    }
+  ],
+  "repository": {},
+  "foldingStartMarker": "/\\*",
+  "foldingStopMarker": "\\*/"
+}
